@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>类 | Yun Zhou</title><meta name="keywords" content="java"><meta name="author" content="Yun Zhou"><meta name="copyright" content="Yun Zhou"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="类什么时候被加载   创建对象实例时（new) 创建子类对象实例时，父类也会被加载 使用类的静态成员时（静态属性，静态方法）   方法重载Overload   方法名：必须相同 形参列表：必须不同（形参类型、个数、顺序，至少有一样不同，参数名无要求） 返回类型：无要求   可变参数   可变参数的实参可以为0个或任意多个 可变参数的实参可以是数组 可变参数的本质就是数组 可变参数可以和普通类型参">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类">
+<meta property="og:url" content="http://example.com/2022/10/23/%E7%B1%BB/index.html">
+<meta property="og:site_name" content="Yun Zhou">
+<meta property="og:description" content="类什么时候被加载   创建对象实例时（new) 创建子类对象实例时，父类也会被加载 使用类的静态成员时（静态属性，静态方法）   方法重载Overload   方法名：必须相同 形参列表：必须不同（形参类型、个数、顺序，至少有一样不同，参数名无要求） 返回类型：无要求   可变参数   可变参数的实参可以为0个或任意多个 可变参数的实参可以是数组 可变参数的本质就是数组 可变参数可以和普通类型参">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pjxxxxx.github.io/img/5.jpg">
+<meta property="article:published_time" content="2022-10-23T15:24:40.000Z">
+<meta property="article:modified_time" content="2022-10-23T15:26:19.294Z">
+<meta property="article:author" content="Yun Zhou">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pjxxxxx.github.io/img/5.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/10/23/%E7%B1%BB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '类',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-23 23:26:19'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avater.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pjxxxxx.github.io/img/5.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Yun Zhou</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">类</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-23T15:24:40.000Z" title="发表于 2022-10-23 23:24:40">2022-10-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-23T15:26:19.294Z" title="更新于 2022-10-23 23:26:19">2022-10-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="类"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>类什么时候被加载</p>
+</blockquote>
+<ul>
+<li>创建对象实例时（new)</li>
+<li>创建子类对象实例时，父类也会被加载</li>
+<li>使用类的静态成员时（静态属性，静态方法）</li>
+</ul>
+<blockquote>
+<p>方法重载Overload</p>
+</blockquote>
+<ul>
+<li>方法名：必须相同</li>
+<li>形参列表：必须不同（形参类型、个数、顺序，至少有一样不同，参数名无要求）</li>
+<li>返回类型：无要求</li>
+</ul>
+<blockquote>
+<p>可变参数</p>
+</blockquote>
+<ul>
+<li>可变参数的实参可以为0个或任意多个</li>
+<li>可变参数的实参可以是数组</li>
+<li>可变参数的本质就是数组</li>
+<li>可变参数可以和普通类型参数一起放在形参列表，但必须放在最后</li>
+<li>一个形参列表中只能出现一个可变参数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class T&#123;</span><br><span class="line">	public int sum(String str,int... nums)&#123;</span><br><span class="line">		...</span><br><span class="line">		return ...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>作用域</p>
+</blockquote>
+<ul>
+<li>Java中主要的变量就是属性（成员变量）和局部变量</li>
+<li>局部变量是值在成员方法中定义的变量</li>
+<li>全局变量，作用域为整个类体；局部变量作用域在定义它的代码块中</li>
+<li>局部变量有默认值，可以不赋值，直接使用；局部变量没有默认值，必须赋值后，才能使用</li>
+<li>属性和局部变量可以重名，访问时遵循就近原则；但同一个作用域中，变量不能重名</li>
+<li>属性生命周期：较长，随着类的创建而创建，随着对象的死亡而死亡</li>
+<li>局部变量生命周期：较短，随着它的代码块的执行而创建，随着代码块的结束而死亡（即在一次方法调用的过程中）</li>
+<li>属性：可以被本类使用，或其他类（通过对象调用）使用；局部变量：只能在本类中对应的方法中使用</li>
+<li>全局变量可以加修饰符，局部变量不可以加修饰符</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> main&#123;</span><br><span class="line">	<span class="type">Person</span> <span class="variable">p1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">	p.say();</span><br><span class="line">	<span class="type">T</span> <span class="variable">t1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">T</span>(); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">T</span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="type">Person</span> <span class="variable">p1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">		System.out.println(p1.name); <span class="comment">//jack</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test2</span><span class="params">(Person p)</span>&#123;</span><br><span class="line">		System.out.println(p.name); <span class="comment">//jack</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">	<span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;jack&quot;</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">say</span><span class="params">()</span>&#123;</span><br><span class="line">		String name=<span class="string">&quot;king&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>构造器</p>
+</blockquote>
+<ul>
+<li>构造器能重载，默认无参构造会被覆盖，需显示定义</li>
+<li>名称和类名一致</li>
+<li>构造器是完成对象的初始化，并不是创建对象；在创建对象时，系统自动的调用该类的构造方法</li>
+</ul>
+<blockquote>
+<p>javap的使用</p>
+</blockquote>
+<ul>
+<li>javap时JDK提供的一个命令行工具，javap能对给定的class文件提供的字节代码进行反编译</li>
+<li>使用格式：javap <options> <classes> 常用javap  -c -v 类名</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><option></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td align="left">对代码进行反汇编</td>
+</tr>
+<tr>
+<td>-p</td>
+<td align="left">显示所有类和成员</td>
+</tr>
+<tr>
+<td>-v   -verbose</td>
+<td align="left">输出附加信息</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>对象创建的流程</p>
+</blockquote>
+<ol>
+<li><p>创建对象时，在方法区加载类信息(只用加载一次)</p>
+</li>
+<li><p>开始new,在堆中开辟空间，开始初始化</p>
+</li>
+<li><p>首先进行默认初始化，给属性赋默认值</p>
+</li>
+<li><p>再进行显示初始化，将自定义的值赋给属性</p>
+</li>
+<li><p>调用构造器，进行对象初始化，new完成</p>
+</li>
+<li><p>返回对象引用给p</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">  String name;</span><br><span class="line">  int age=20;</span><br><span class="line">  Person(String name,int age)&#123;this.name = name;this.age = age;&#125;</span><br><span class="line">&#125;</span><br><span class="line">Person p = new Person(&quot;小米&quot;,20);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p>this关键字</p>
+</blockquote>
+<ul>
+<li>java虚拟机会给每个对象分配this，代表当前对象</li>
+<li>this关键字可以用来访问本类的属性、方法、构造器</li>
+<li>拥有区分当前类的属性和局部变量</li>
+<li>访问成员方法的语法：this.方法名（参数列表）</li>
+<li>访问构造器语法：this(参数列表)；只能在构造器中使用,且this（参数列表）必须放在该构造器的第一句</li>
+<li>this不能在类定义的外部使用，只能在类定义的方法中使用</li>
+</ul>
+<blockquote>
+<p>访问修饰符</p>
+</blockquote>
+<ul>
+<li>public：公开级别，对外公开</li>
+<li>protected：对子类和同一个包中的类公</li>
+<li>default：同一个包的类公开</li>
+<li>private：只有类本身可以访问，不对外公开</li>
+<li>修饰符可以用来修饰类中的属性，成员方法</li>
+<li>只有default和pulic才能修饰类，且访问权限同上</li>
+<li>成员方法的访问规则和属性完全一样</li>
+</ul>
+<hr>
+<h2 id="面向对象编程的三大特征"><a href="#面向对象编程的三大特征" class="headerlink" title="面向对象编程的三大特征"></a>面向对象编程的三大特征</h2><blockquote>
+<p>封装</p>
+</blockquote>
+<ul>
+<li>定义：将抽象出的数据（属性）和对数据的操作（方法）封装在一起，数据被保护在内部，程序的其它部分只有通过授权的操作（方法），才能对数据进行操作</li>
+<li>好处<ul>
+<li>隐藏实现细节（ 调用方法）</li>
+<li>可以对数据进行验证，保证安全合理</li>
+</ul>
+</li>
+<li>实现步骤<ol>
+<li>将属性进行私有化，（不能直接修改属性）</li>
+<li>提供一个公共的set方法，用于对属性判断并赋值</li>
+<li>提供一个公共的get方法，由于获取属性的值</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>继承</p>
+</blockquote>
+<ul>
+<li>作用：继承可以解决代码复用，当多个类存在相同的属性（变量）和方法时，可以从这些类中抽象出父类，在父类中定义这些相同的属性和方法，所有的子类不需要重新定义这些属性和方法只需要通过extends来声明继承父类即可</li>
+<li>父类又叫超类、基类；子类又叫派生类</li>
+<li>子类继承了&#x3D;&#x3D;所有的属性和方法&#x3D;&#x3D;，但私有属性和方法不能在子类直接访问，要通过公共的公共的方法去访问非私有的属性和方法就能直接访问</li>
+<li>子类必须调用父类的构造器，完成父类的初始化；创建子类对象时，不管使用子类的哪个构造器（构造器中有super()方法），默认情况下总会去调用父类的无参构造器，如果父类没有提供无参构造器，则必须在子类的构造器中用super去指定使用父类的哪个构造器完成对父类的初始化工作，否则，编译不会通过。</li>
+<li>super和this使用时都必须放在第一行，所以不能同时使用</li>
+<li>父类构造器的调用一直向上直到Object类</li>
+<li>继承的本质<ul>
+<li>方法去进行类加载，从上到下</li>
+<li>堆中分配数据，从上到下，所有类中的数据都会创建</li>
+<li>查找属性：从下到上，子类有且能访问，就返回；子类没有，就找父类，找到且能访问就返回，否则就一直往上找，直到Object，没找到就报错：不存在</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>super关键字</p>
+</blockquote>
+<ul>
+<li>super代表父类的引用，用于访问父类的非私有属性super.属性名、方法super.方法名（参数列表）、构造器（super(参数列表)，只能在第一句，只能出现一句）</li>
+<li>分工明确，父类加载父类属性和方法，子类加载子类属性和方法</li>
+</ul>
+<blockquote>
+<p>方法重写Override</p>
+</blockquote>
+<ul>
+<li>子类的方法和父类的方法名称，参数一样，返回类型：相同或者子类方法返回类型是父类返回类型的子类</li>
+<li>子类方法不能缩小父类方法的访问权限</li>
+</ul>
+<blockquote>
+<p>多态</p>
+</blockquote>
+<ul>
+<li><p>方法或对象具有多种形态，是建立在封装和继承之上</p>
+</li>
+<li><p>方法的多态（方法重载、重写体现多态）</p>
+</li>
+<li><p>对象的多态（核心）</p>
+<ul>
+<li>一个对象的编译类型和运行类型可以不一致</li>
+<li>编译类型在定义对象时就确定了，不能改变</li>
+<li>运行类型是可以改变的</li>
+<li>编译类型看定义时 &#x3D; 号左边，运行类型看 &#x3D; 号右边</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Animal</span> <span class="variable">animal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(); <span class="comment">//animal的编译类型是Animal，运行类型是Dog  向上转型</span></span><br><span class="line">animal = <span class="keyword">new</span> <span class="title class_">Cat</span>(); <span class="comment">//运行类型变为Cat,编译类型仍是Animal</span></span><br><span class="line"><span class="type">Cat</span> <span class="variable">animal</span> <span class="operator">=</span> (Cat)animal;<span class="comment">//向下转型</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>向上转型：父类引用指向子类对象，可以调用父类的所有成员，不能调用子类的特有成员，因为在编译阶段，能调用哪些成员，是由编译类型决定的，最终运行效果看子类的具体实现（调用方法，从子类（运行类型）找）</li>
+<li>向下转型：只能强转父类的引用，不能强转父类的对象，转型后就能调用子类特有的成员</li>
+<li>属性没有重写，属性的值看编译类型</li>
+<li>instanceof:用于判断对象的运行类型是否为XX类型或XX类型的子类型</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>动态绑定机制</p>
+</blockquote>
+<ul>
+<li>当调用对象方法时，该方法会和该对象的内存地址&#x2F;运行类型绑定</li>
+<li>当调用对象属性时，没有动态绑定机制，哪里声明哪里使用</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Yun Zhou</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/10/23/%E7%B1%BB/">http://example.com/2022/10/23/%E7%B1%BB/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Yun Zhou</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="https://pjxxxxx.github.io/img/5.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/23/Object%E6%96%B9%E6%B3%95/"><img class="prev-cover" src="https://pjxxxxx.github.io/img/4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Object方法</div></div></a></div><div class="next-post pull-right"><a href="/2022/10/23/Java%E6%95%B0%E7%BB%84/"><img class="next-cover" src="https://pjxxxxx.github.io/img/9.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java数组</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/10/23/Object%E6%96%B9%E6%B3%95/" title="Object方法"><img class="cover" src="https://pjxxxxx.github.io/img/4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-23</div><div class="title">Object方法</div></div></a></div><div><a href="/2022/10/23/%E5%85%B3%E9%94%AE%E5%AD%97/" title="关键字"><img class="cover" src="https://pjxxxxx.github.io/img/10.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-23</div><div class="title">关键字</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avater.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yun Zhou</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81"><span class="toc-number">1.</span> <span class="toc-text">面向对象编程的三大特征</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/10/23/%E5%85%B3%E9%94%AE%E5%AD%97/" title="关键字"><img src="https://pjxxxxx.github.io/img/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关键字"/></a><div class="content"><a class="title" href="/2022/10/23/%E5%85%B3%E9%94%AE%E5%AD%97/" title="关键字">关键字</a><time datetime="2022-10-23T15:25:10.000Z" title="发表于 2022-10-23 23:25:10">2022-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/23/Object%E6%96%B9%E6%B3%95/" title="Object方法"><img src="https://pjxxxxx.github.io/img/4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Object方法"/></a><div class="content"><a class="title" href="/2022/10/23/Object%E6%96%B9%E6%B3%95/" title="Object方法">Object方法</a><time datetime="2022-10-23T15:24:58.000Z" title="发表于 2022-10-23 23:24:58">2022-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/23/%E7%B1%BB/" title="类"><img src="https://pjxxxxx.github.io/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="类"/></a><div class="content"><a class="title" href="/2022/10/23/%E7%B1%BB/" title="类">类</a><time datetime="2022-10-23T15:24:40.000Z" title="发表于 2022-10-23 23:24:40">2022-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/23/Java%E6%95%B0%E7%BB%84/" title="Java数组"><img src="https://pjxxxxx.github.io/img/9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java数组"/></a><div class="content"><a class="title" href="/2022/10/23/Java%E6%95%B0%E7%BB%84/" title="Java数组">Java数组</a><time datetime="2022-10-22T16:30:18.000Z" title="发表于 2022-10-23 00:30:18">2022-10-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/23/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="Java基本数据类型"><img src="https://pjxxxxx.github.io/img/10.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java基本数据类型"/></a><div class="content"><a class="title" href="/2022/10/23/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="Java基本数据类型">Java基本数据类型</a><time datetime="2022-10-22T16:29:50.000Z" title="发表于 2022-10-23 00:29:50">2022-10-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Yun Zhou</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
